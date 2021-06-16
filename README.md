@@ -7,8 +7,10 @@ Make Car Bookings Easily with kivy mobile application framework.</br>
  > Django 3 </br>
  > Kivy 2.0 </br>
  > Kivymd </br>
-## **<u>How To Install</u>**</br>
-Download apk and run it on android platform.</br>
+## **<u>How To Run App</u>**</br>
+*APP/ $ python main.py*
+or
+Once apk is build run it on android platform.</br>
 ## **How to set up the server environment**</br>
    $ *python -m pip install -r requirements.txt </br>
    $ python manage.py runserver <ipaddress:port>*</br>
