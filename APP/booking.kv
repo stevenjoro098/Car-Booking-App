@@ -1,0 +1,359 @@
+#: import MDDatePicker kivymd.uix.picker
+<Success>
+    MDFloatLayout:
+        Image:
+            pos_hint:{"center_x": .1,"center_y": .9}
+            source:"images/success.png"
+        MDLabel:
+            pos_hint:{"center_x": .8,"center_y": .9}
+            text:"Booking Successful!!!"
+            font_style:"H6"
+            theme_text_color:"Custom"
+            text_color: 0,1,0,.8
+        MDLabel:
+            pos_hint:{"center_x":.9,"center_y": .65}
+            text:"Ref No: 2384686"
+        MDLabel:
+            pos_hint:{"center_x": .6,"center_y": .2}
+            text:"Carry with you Your National ID card or Passport as you visit our premises"
+            font_style:"Caption"
+
+<MyGrid>
+    screen_manager:screen_manager.__self__
+    to_label:to_label.__self__
+    from_label:from_label.__self__
+    last_name:last_name.__self__
+    first_name:first_name.__self__
+    phone_number:phone_number.__self__
+    no_days:no_days.__self__
+    carousel:carousel.__self__
+    transmission:transmission.__self__
+    top_speed:top_speed.__self__
+    #name:name.__self__
+    model:model.__self__
+    seats:seats.__self__
+    booking_title:booking_title.__self__
+    booking_rate:booking_rate.__self__
+    booking_image:booking_image.__self__
+    year:year.__self__
+    image:image.__self__
+    cc:cc.__self__
+
+    canvas.before:
+        Color:
+            rgba:.54,.54,0,.5
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    ScreenManager:
+        id:screen_manager
+
+        Screen:
+            name:"home"
+            on_enter:
+                root.update_carousel()
+            MDFloatLayout:
+                #orientation:"vertical"
+
+                MDLabel:
+                    text:"Executive Fleet..."
+                    pos_hint:{"center_x": .6, "center_y":.95}
+                    font_style:"H5"
+                    bold:True
+                MDSeparator:
+                    pos_hint:{"center_x": .5, "center_y":.91}
+                MDIconButton:
+                    icon:'menu'
+                    pos_hint:{"center_x": .9, "center_y":.95}
+                    on_release:print("hello")
+                Carousel:
+                    id:carousel
+
+                MDCard:
+                    size_hint:None, None
+                    size: "280dp" , "120dp"
+                    border_radius: 20
+                    elevation:10
+                    radius:[20,]
+                    md_bg_color:0.15,0.45,.65,1
+                    pos_hint:{"center_x": .5, "center_y": .36}
+                    MDFloatLayout:
+                        MDLabel:
+                            text:"Economy"
+                            theme_text_color:"Custom"
+                            text_color:1,1,1,1
+                            bold:True
+                            font_style:"H4"
+                            pos_hint:{"center_x": .58, "center_y": .7}
+                        MDLabel:
+                            text:"Affordable vehicles at the best prices..."
+                            theme_text_color:"Custom"
+                            text_color:1,1,1,1
+                            bold:True
+                            font_style:"Caption"
+                            pos_hint:{"center_x": .58, "center_y": .46}
+                        MDFloatingActionButton:
+                            icon: "plus"
+                            md_bg_color: 1,1,1,1
+                            pos_hint:{"center_x": .8, "center_y": .12}
+                            on_release:
+                                root.update_carousel()
+                MDCard:
+                    size_hint:None, None
+                    size: "280dp" , "120dp"
+                    border_radius: 20
+                    radius:[20,]
+                    elevation:10
+                    md_bg_color:0,0,0,1
+                    pos_hint:{"center_x": .5, "center_y": .13}
+                    MDFloatLayout:
+                        MDLabel:
+                            text:"Premium"
+                            theme_text_color:"Custom"
+                            text_color:1,1,1,1
+                            bold:True
+                            font_style:"H4"
+                            pos_hint:{"center_x": .58, "center_y": .7}
+                        MDLabel:
+                            text:"Get quality class vehicles..."
+                            theme_text_color:"Custom"
+                            text_color:1,1,1,1
+                            bold:True
+                            font_style:"Caption"
+                            pos_hint:{"center_x": .58, "center_y": .46}
+                        MDFloatingActionButton:
+                            icon: "plus"
+                            md_bg_color: 1,1,1,1
+                            pos_hint:{"center_x": .8, "center_y": .12}
+
+
+
+        Screen:
+            name:"details"
+
+            RelativeLayout:
+                canvas.before:
+                    Color:
+                        rgba:0.59,0.6,0.6,1
+                    Rectangle:
+                        pos:self.pos
+                        size:self.size
+                MDIconButton:
+                    icon:"keyboard-backspace"
+                    pos_hint:{"center_x": .08,"center_y": .93}
+                    on_release:
+                        screen_manager.current = "home"
+
+                MDLabel:
+                    id:name
+                    text:""
+                    bold:True
+                    theme_text_color:"Custom"
+                    text_color:1,1,1,1
+                    font_style:"H5"
+                    pos_hint:{"center_x": .55,"center_y": .85}
+                MDLabel:
+                    id:model
+                    text:""
+                    bold:True
+                    theme_text_color:"Custom"
+                    text_color:1,1,1,1
+                    font_style:"Caption"
+                    pos_hint:{"center_x":.55,"center_y": .80}
+                MDLabel:
+                    id:year
+                    text:""
+                    bold:True
+                    theme_text_color:"Custom"
+                    text_color:1,1,1,1
+                    font_style:"Caption"
+                    pos_hint:{"center_x":.6,"center_y": .80}
+                AsyncImage:
+                    id:image
+                    source:""
+                    pos_hint:{"center_x":.52,"center_y": .65}
+                MDGridLayout:
+                    cols:3
+                    pos_hint_x:None
+                    spacing:8
+                    pos_hint:{"center_y": .01}
+                    MDCard:
+                        size_hint: None, None
+                        size: "100dp","100dp"
+                        border_radius:20
+                        radius:[20,]
+                        md_bg_color:1,1,1,.1
+                        elevation:10
+                        orientation:"vertical"
+                        MDFloatLayout:
+
+                            MDIconButton:
+                                pos_hint:{"center_x":.5,"center_y":.85}
+                                icon:"engine"
+                            MDLabel:
+                                id:cc
+                                pos_hint:{"center_x":.5,"center_y":.75}
+                                text:"L"
+
+
+                    MDCard:
+                        size_hint: None, None
+                        size: "100dp","100dp"
+                        border_radius:20
+                        md_bg_color:1,1,1,.1
+                        radius:[20]
+                        elevation:10
+                        orientation:"vertical"
+                        MDIconButton:
+                            icon:"car-seat"
+                        MDLabel:
+                            id:seats
+                            text:"2 Seats"
+                    MDCard:
+                        size_hint: None, None
+                        size: "100dp","100dp"
+                        border_radius:20
+                        radius:[20,]
+                        md_bg_color:1,1,1,.1
+                        elevation:10
+                        orientation:"vertical"
+                        MDIconButton:
+                            icon:"gauge"
+                        MDLabel:
+                            id:top_speed
+                            text:""
+
+                    MDCard:
+                        size_hint: None, None
+                        size: "100dp","100dp"
+                        border_radius:20
+                        radius:[20,]
+                        md_bg_color:1,1,1,.1
+                        elevation:10
+                        orientation:"vertical"
+                        MDIconButton:
+                            icon:"car-shift-pattern"
+                        MDLabel:
+                            id:transmission
+                            text:"Automatic"
+                MDSeparator:
+                    pos_hint:{"center_y": .15}
+                MDRectangleFlatIconButton:
+                    pos_hint:{"center_x":.7,"center_y": .08}
+                    icon: "car-side"
+                    text: "BOOK NOW"
+
+                    text_color:0,0,1,.5
+                    md_bg_color:0.59,0.6,0.6,1
+                    on_release:
+                        screen_manager.current = "book"
+        Screen:
+            name:"book"
+            on_enter:
+                #root.car_booking_details()
+            RelativeLayout:
+                canvas.before:
+                    Color:
+                        rgba:0.59,0.6,0.6,1
+                    Rectangle:
+                        pos:self.pos
+                        size:self.size
+                MDCard:
+                    id:details_card
+                    pos_hint:{"center_x": .5,"center_y": .85}
+                    size_hint:None,None
+                    size:"300dp","60dp"
+                    elevation:10
+                    border_radius:20
+                    radius:[20]
+                    orientation:"vertical"
+                    AsyncImage:
+                        id:booking_image
+
+                    MDLabel:
+                        id:booking_title
+                        text:""
+                        halign:"center"
+                        bold:True
+                    MDLabel:
+                        id:booking_rate
+                        text:""
+                        halign:"center"
+                        font_style:"Caption"
+                MDCard:
+                    pos_hint:{"center_x": .5,"center_y": .45}
+                    size_hint:None,None
+                    size:"300dp","400dp"
+                    elevation:10
+                    border_radius:20
+                    radius:[20]
+                    RelativeLayout:
+                        MDLabel:
+                            text:"Choose Period:"
+                            pos_hint:{"center_x": .55,"center_y": .93}
+                            bold:True
+                            font_style:"H6"
+
+                        MDSeparator:
+                            pos_hint:{"center_x": .5,"center_y": .87}
+                        MDLabel:
+                            id:from_label
+                            text:"From"
+                            pos_hint:{"center_x": .65,"center_y": .8}
+                        MDLabel:
+                            id:no_days
+                            text:""
+                            pos_hint:{"center_x": 1.1,"center_y": .93}
+                            bold:True
+                            font_style:"H6"
+
+                        MDLabel:
+                            id:to_label
+                            text:"To"
+                            pos_hint:{"center_x": 1.2,"center_y": .8}
+                        MDRaisedButton:
+                            text:"From"
+                            size_hint:(.3,.1)
+                            pos_hint:{"center_x": .25,"center_y": .65}
+                            on_release:root.set_date_from()
+                        MDRaisedButton:
+                            text:"To"
+                            size_hint:(.3,.1)
+                            pos_hint:{"center_x": .75,"center_y": .65}
+                            on_release:root.set_date_to()
+                        MDSeparator:
+                            pos_hint:{"center_x": .5,"center_y": .55}
+                        MDTextFieldRound:
+                            id:first_name
+                            icon_left:"account-tie"
+                            size_hint:(.75,.08)
+                            hint_text:"First Name"
+                            pos_hint:{"center_x": .5,"center_y": .45}
+                        MDTextFieldRound:
+                            id:last_name
+                            icon_left:"account-tie"
+                            size_hint:(.75,.08)
+                            hint_text:"Last Name"
+                            pos_hint:{"center_x": .5,"center_y": .35}
+                        MDTextFieldRound:
+                            id:phone_number
+                            icon_left:"cellphone"
+                            size_hint:(.75,.08)
+                            hint_text:"+ 254 Phone Number"
+                            pos_hint:{"center_x": .5,"center_y": .25}
+
+                        MDRaisedButton:
+                            id:submit_btn
+                            icon:"check-decagram"
+                            text:"OK"
+                            pos_hint:{"center_x": .7,"center_y": .1}
+                            on_release:root.book()
+
+                        MDRaisedButton:
+                            text:"Cancel"
+                            pos_hint:{"center_x": .3,"center_y": .1}
+                            on_release:
+                                screen_manager.current = "home"
+                                root.clear_booking_details()
+                        MDSeparator:
+                            pos_hint:{"center_x": .5,"center_y": .027}
